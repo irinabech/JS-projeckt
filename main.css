@@ -1,0 +1,35 @@
+/*Стили для меню-аккордеона*/
+.accordion {
+    background-color: #CFD8DC;
+    color: #fff;
+    cursor: pointer;
+    padding: 16px;
+    width: 50%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: 0.5s;
+}
+.active, .accordion:hover {
+    background-color: #607D8B;
+}
+.accordion:after {
+    content: '\002B';
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2212";
+}
+.panel {
+    padding: 0 18px;
+    color: #212121;
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
