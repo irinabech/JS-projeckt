@@ -4,21 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <script src="./js/dropmenu.js"></script>
+    <script src="./js/images.js"></script>
     <title>Редактор фото</title>
 </head>
 <body>
     <div class=container>
-        <div class=btn1>
-            <h1>Выбери и загрузи фото</h1>
-            <input type=file accept=image/* id=addImage><br>
-			<button id='dowload'>Скачать</button>
-        </div>
-        <div id=poligon>
-            <canvas id=canvas></canvas>
-        </div>
-        <div id=dropmenu>
-            <h2>Панель инстументов</h2>
-            
-        </div>
+        <header>
+            <div class=btn1>
+                <h2>Выбери и загрузи фото</h1>
+                <input type="file" id="inputImg" />
+                <button id='dowload'>Скачать</button>
+            </div>
+        </header>
+        <main>
+            <div id=poligon>
+                <canvas id="canvas"></canvas>
+            </div>
+            <div id=dropmenu>
+                <h2>Панель инстументов</h2>
+                <button class="dmElement">Фильтры</button>
+                    <div class="panel">
+                        <p>...</p>
+                    </div>
+                <button class="dmElement">Маски</button>
+                    <div class="panel">
+                        <p>...</p>
+                    </div>
+                <button class="dmElement">Рисование</button>
+                    <div class="panel">
+                        <p>...</p>
+                    </div>
+        </main>
+        </div><!--Конец блока контейнера-->
 </body>
 </html>
