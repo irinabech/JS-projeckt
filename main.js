@@ -20,7 +20,6 @@ window.onload=function(){
         reader.readAsDataURL(e.target.files[0])
         console.log(reader);
         console.log(img);
-    
     }//image 
     
     //drop menu 
