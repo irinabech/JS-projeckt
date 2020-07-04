@@ -1,5 +1,29 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+/*Расположение блоков*/
+/*Вресенные стили, чтобы выделить блоки*/
+.container {
+    width: 100%;
+    border: 3px red solid !important;/*Временно*/
+    display: flex;
+    flex-wrap: wrap;
+}
+header {
+    width: 100%;
+    background: #ffc;/*Временно*/
+}
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+div {
+    border: 3px green solid;/*Временно*/
+}
 /*Стили для меню-аккордеона*/
-.accordion {
+.dmElement {
     background-color: #CFD8DC;
     color: #fff;
     cursor: pointer;
@@ -11,10 +35,10 @@
     font-size: 18px;
     transition: 0.5s;
 }
-.active, .accordion:hover {
+.active, .dmElement:hover {
     background-color: #607D8B;
 }
-.accordion:after {
+.dmElement:after {
     content: '\002B';
     color: #fff;
     font-size: 18px;
