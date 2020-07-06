@@ -11,19 +11,21 @@ window.onload = function () {
 
     //загрузка img в canvas
     function image(e) {
+        ctx.clearRect(0, 0, cnv.width, cnv.height);//очистить контекст перед загрузкой img
         reader.onload = function (e) {
             img.onload = function () {
                 console.log(this.width + 'x' + this.height);
                 let ratio = this.width / this.height; //соотношение сторон img
                 let width = 650;
                 let height = width / ratio;
-                ctx.drawImage(img, 0, 0, width, height);//помещение изображения в контекст 
+                ctx.drawImage(img, 0, 0, width, height);//помещение изображения в контекст
             }//img.onload
             img.src = e.target.result;
         }
         reader.readAsDataURL(e.target.files[0])
         //console.log(img);
     }//image
+    
     //drop menu 
     let dropMenu = document.getElementsByClassName("dmElement");
     for (let i = 0; i < dropMenu.length; i++) {
