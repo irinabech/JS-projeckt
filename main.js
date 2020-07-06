@@ -1,39 +1,43 @@
-window.onload=function(){
+window.onload = function () {
     //canvas
     let inputImg = document.getElementById('inputImg');
-    inputImg.addEventListener('change', image, false);
     let cnv = document.getElementById('canvas');
     let ctx = cnv.getContext('2d');
-    canvas.width = 650;
-    canvas.height = 650;
-    
-    //загрузка img в canvas
-    let img = new Image();
+    let img = new Image()//img, получаемое при загрузке
     let reader = new FileReader();
-    function image(e){
-        reader.onload = function(e){
-            img.onload = function(){
-            ctx.drawImage(img,0,0);
-            }
+    cnv.width = 650;
+    cnv.height = 650;
+    inputImg.addEventListener('change', image, false);
+
+    //загрузка img в canvas
+    function image(e) {
+        reader.onload = function (e) {
+            img.onload = function () {
+                console.log(this.width + 'x' + this.height);
+                let ratio = this.width / this.height; //соотношение сторон img
+                let width = 650;
+                let height = width / ratio;
+                ctx.drawImage(img, 0, 0, width, height);//помещение изображения в контекст 
+            }//img.onload
             img.src = e.target.result;
         }
         reader.readAsDataURL(e.target.files[0])
-        console.log(reader);
-        console.log(img);
-    }//image 
-    
+        //console.log(img);
+    }//image
     //drop menu 
     let dropMenu = document.getElementsByClassName("dmElement");
     for (let i = 0; i < dropMenu.length; i++) {
-        dropMenu[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        let panel = this.nextElementSibling;
-        if (panel.style.maxHeight){
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
+        dropMenu[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
         })
     }
+    //Панель фильров
+    
 }//onload
 
