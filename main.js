@@ -9,8 +9,6 @@ function imagedata_to_image(imagedata) {
     image.src = canvas.toDataURL();
     return image;
 }
-
-
 window.onload = function () {
     //canvas
     let inputImg = document.getElementById('inputImg');
@@ -40,6 +38,20 @@ window.onload = function () {
     }
     return imageData;
     };
+
+    // черно-белый фильтр
+    let black = function (imageData) {
+        for(var y = 0; y < imageData.height; y++){  
+            for(var x = 0; x < imageData.width; x++){  
+                var i = (y * 4) * imageData.width + x * 4;  
+                var avg = (imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2]) / 3;  
+                imageData.data[i] = avg;   
+                imageData.data[i + 1] = avg;   
+                imageData.data[i + 2] = avg;  
+            }  
+        }
+        return imageData;
+    };
     
     //загрузка img в canvas
     function image(e) {
@@ -68,14 +80,28 @@ window.onload = function () {
                     })
                 }
             //фильтры
-                let sepia_button=document.querySelector('#sepia');
-                sepia_button.addEventListener('input', updateFilterVal);
 
-                function updateFilterVallet(){
+                let sepia_button = document.getElementById('sepia');
+                sepia_button.addEventListener('click', function (){
+                    img = current_img;
+                    ctx.clearRect(0, 0, cnv.width, cnv.height);
+                    ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
+                    console.log('Test')
                     let img_data = sepia(ctx.getImageData(0, 0, width, height))
                     ctx.putImageData(img_data, 0, 0);
                     img = imagedata_to_image(img_data)
-                }
+                });
+
+                let black_button = document.getElementById('black');
+                black_button.addEventListener('click', function (){
+                    img = current_img;
+                    ctx.clearRect(0, 0, cnv.width, cnv.height);
+                    ctx.drawImage(img, 0, 0, cnv.width, cnv.height);
+                    console.log('Test')
+                    let img_data = black(ctx.getImageData(0, 0, width, height))
+                    ctx.putImageData(img_data, 0, 0);
+                    img = imagedata_to_image(img_data)
+                });
 
 
                 }//img.onload

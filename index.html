@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <script src="./main.js"></script>
-    <title>Редактор фото</title>
+    <title>Retro editor</title>
 </head>
 <body>
     <div class=container>
@@ -14,7 +14,7 @@
                 <h2>Выбор фото</h1>
                 <input type="file" id="inputImg" />
                 <button id='dowload'>Скачать</button>
-                <button id='clear'>Очистить фильтры</button>
+                <button id='clear'>Очистить все фильтры</button>
             </div>
         </header>
         <main>
@@ -29,15 +29,16 @@
                             <label for="grayscale">Сепия</label>
                             <input type="range" min="0" max="100" value="0" id="sepia">
                         </div>-->
-                        <label> Сеппия</label><input type="checkbox" id=sepia/>
+                        <label> Сеппия<input type="radio" id=sepia name=radio value="sepia"/> </label>
+                        <label> Черно-белый<input type="radio" id=black name=radio value="black"/></label>
                     </div>
                 <button class="dmElement">Маски</button>
                     <div class="panel">
-                        <p>...</p>
+                        <div>...</div>
                     </div>
                 <button class="dmElement">Рисование</button>
                     <div class="panel">
-                        <p>...</p>
+                        <div>...</div>
                     </div>
         </main>
         </div><!--Конец блока контейнера-->
