@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <script src="./js/dropmenu.js"></script>
-    <script src="./js/images.js"></script>
+    <script src="./main.js"></script>
     <title>Редактор фото</title>
 </head>
 <body>
     <div class=container>
         <header>
             <div class=btn1>
-                <h2>Выбери и загрузи фото</h1>
+                <h2>Выбор фото</h1>
                 <input type="file" id="inputImg" />
                 <button id='dowload'>Скачать</button>
+                <button id='clear'>Очистить фильтры</button>
             </div>
         </header>
         <main>
@@ -25,7 +25,11 @@
                 <h2>Панель инстументов</h2>
                 <button class="dmElement">Фильтры</button>
                     <div class="panel">
-                        <p>...</p>
+                        <!--<div class="slider">
+                            <label for="grayscale">Сепия</label>
+                            <input type="range" min="0" max="100" value="0" id="sepia">
+                        </div>-->
+                        <label> Сеппия</label><input type="checkbox" id=sepia/>
                     </div>
                 <button class="dmElement">Маски</button>
                     <div class="panel">
