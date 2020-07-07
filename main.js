@@ -23,11 +23,9 @@ window.onload = function () {
     let height = 550;
     inputImg.addEventListener('input', image, false);
 
-    //функция фильтра сеппия
+    //цикл фильтра сеппия
     let sepia = function (imageData) {
-      // получаем одномерный массив, описывающий все пиксели изображения
     let pixels = imageData.data;
-      // циклически преобразуем массив, изменяя значения красного, зеленого и синего каналов
     for (let i = 0; i < pixels.length; i += 4) {
         let r = pixels[i];
         let g = pixels[i + 1];
@@ -41,10 +39,10 @@ window.onload = function () {
 
     // черно-белый фильтр
     let black = function (imageData) {
-        for(var y = 0; y < imageData.height; y++){  
-            for(var x = 0; x < imageData.width; x++){  
-                var i = (y * 4) * imageData.width + x * 4;  
-                var avg = (imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2]) / 3;  
+        for(let y = 0; y < imageData.height; y++){  
+            for(let x = 0; x < imageData.width; x++){  
+                let i = (y * 4) * imageData.width + x * 4;  
+                let avg = (imageData.data[i] + imageData.data[i + 1] + imageData.data[i + 2]) / 3;  
                 imageData.data[i] = avg;   
                 imageData.data[i + 1] = avg;   
                 imageData.data[i + 2] = avg;  
@@ -79,7 +77,7 @@ window.onload = function () {
                         }
                     })
                 }
-            //фильтры
+            // применить фильтры
 
                 let sepia_button = document.getElementById('sepia');
                 sepia_button.addEventListener('click', function (){
